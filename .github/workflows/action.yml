@@ -24,37 +24,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2.3.4
-    - uses: hashicorp/action-waypoint
-      name: Setup
-      with:
-        version: '0.0.1-beta1'
-        WAYPOINT_GITHUB_TOKEN: ${{ secrets.WAYPOINT_GITHUB_TOKEN }}
-        waypoint_server_address: ${{ secrets.WAYPOINT_SERVER_ADDR }} 
-        waypoint_server_ui: ${{ secrets.WAYPOINT_SERVER_ADDR_UI }}'
-        waypoint_server_token: ${{ secrets.WAYPOINT_SERVER_TOKEN }}
-        workspace: default
-    - uses: hashicorp/action-waypoint
-      name: Build
-      with:
-        operation: build
-        version: '0.0.1-beta1'
-        WAYPOINT_GITHUB_TOKEN: ${{ secrets.WAYPOINT_GITHUB_TOKEN }}
-        workspace: default
-    - uses: hashicorp/action-waypoint
-      name: Deploy
-      with:
-        operation: deploy
-        version: '0.0.1-beta1'
-        WAYPOINT_GITHUB_TOKEN: ${{ secrets.WAYPOINT_GITHUB_TOKEN }}
-        workspace: default
-    - uses: hashicorp/action-waypoint
-      name: Release
-      if: ${{ github.ref == 'refs/heads/main' }}
-      with:
-        operation: release
-        version: '0.0.1-beta1'
-        WAYPOINT_GITHUB_TOKEN: ${{ secrets.WAYPOINT_GITHUB_TOKEN }}
-        workspace: default
+    - name: Hashicorp-Waypoint-Setup  
+      uses: hashicorp/action-setup-waypoint@v0.1.0
     - name: Waypoint-Initailize
       run: waypoint init
     - name: Waypoint-Build  
