@@ -24,11 +24,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Hashicorp Waypoint Setup  
+    - name: Hashicorp-Waypoint-Setup  
       uses: hashicorp/action-setup-waypoint
       with:
         version: '0.1.0'
-    - name: Waypoint Initailize
+    - name: Waypoint-Initailize
       run: waypoint init
-    - name: Waypoint Build  
+    - name: Waypoint-Build  
       run: waypoint build
