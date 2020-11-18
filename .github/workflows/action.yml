@@ -25,9 +25,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2.3.4
     - name: Hashicorp-Waypoint-Setup  
-      uses: hashicorp/action-setup-waypoint
-      with:
-        version: '0.1.0'
+      uses: hashicorp/action-setup-waypoint@v0.1.0
     - name: Waypoint-Initailize
       run: waypoint init
     - name: Waypoint-Build  
